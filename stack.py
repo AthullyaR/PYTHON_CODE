@@ -28,6 +28,26 @@ def reverse(st):
 
     print(rstr)
 
+def inmatch(c1,c2):
+    matchdic={
+        '(':')',
+        '{':'}',
+        '[':']'
+    }
+
+    return (matchdic[c1]==c2)
+
+def isbalanced(s):
+    st=Stack()
+    for i in s:
+        if i=='(' or i=='{'or i=='[':
+            st.push(i)
+        if i==')' or i=='}'or i==']':
+            if st.size()==0:
+                return False
+            if not inmatch(i,st.pop()):
+                return False
+    return st.size()==0
 
 s=Stack()
 s.push(2)
@@ -41,3 +61,5 @@ print(s.size())
 reverse('love')
 all=s.display()
 print(all)
+print(isbalanced("({A+B})"))
+print(isbalanced("({A+B+C)}"))
