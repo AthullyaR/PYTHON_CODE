@@ -1,3 +1,7 @@
+"""
+Merge Sorted Array
+"""
+
 def sortmerge(num1,num2,m,n):
     i=0
     for x in range(m):
